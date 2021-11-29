@@ -1,0 +1,4 @@
+.container{display:flex;}
+.container input{width:100%}
+table{width:100%;table-layout:fixed;border-collapse:collapse;}
+table th,table td{border:1px solid #ccc;text-align:center}
