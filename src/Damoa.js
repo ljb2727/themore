@@ -1,8 +1,10 @@
-import React,{ useState } from 'react';
+import React,{ useState, useRef } from 'react';
 import "./damoa.css";
+
 const Damoa = ()=>{
     const [text, setValue] = useState("");
     const [list, setList] = useState([]);
+    const nameInput = useRef();
     const onChange = (e)=>{
         setValue(e.target.value)
     }
@@ -31,10 +33,12 @@ const Damoa = ()=>{
         console.log(sortObject);
         setList(sortObject);
     };
+    
     const reset = ()=>{
         console.log("reset");
         setList([]);
         setValue("");
+        nameInput.current.focus();
     };
 
     const DamoaList = ({saveList}) =>{
@@ -55,7 +59,7 @@ const Damoa = ()=>{
     return (
         <div>
             <div className="container">
-                <input type="tel" value={text} onChange={onChange} onKeyDown={onKeyDown}/>
+                <input type="tel" value={text} onChange={onChange} onKeyDown={onKeyDown} ref={nameInput}/>
                 <button onClick={showList}>check</button>
             </div>
             <div>
