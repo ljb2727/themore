@@ -6,6 +6,11 @@ const Damoa = ()=>{
     const onChange = (e)=>{
         setValue(e.target.value)
     }
+    const onKeyDown = (e)=>{
+        if(e.key === "Enter"){
+            showList()
+        }
+    }
     const showList = ()=>{
         //console.log(text);
         const object = []
@@ -24,7 +29,7 @@ const Damoa = ()=>{
             return b.percent - a.percent
         })
         console.log(sortObject);
-        setList(sortObject)
+        setList(sortObject);
     };
     const reset = ()=>{
         console.log("reset");
@@ -50,7 +55,7 @@ const Damoa = ()=>{
     return (
         <div>
             <div className="container">
-                <input type="tel" value={text} onChange={onChange}/>
+                <input type="tel" value={text} onChange={onChange} onKeyDown={onKeyDown}/>
                 <button onClick={showList}>check</button>
             </div>
             <div>
