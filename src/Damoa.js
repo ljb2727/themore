@@ -1,4 +1,4 @@
-import React,{ useState, useRef } from 'react';
+import React,{ useState, useRef, useEffect } from 'react';
 import "./damoa.css";
 
 const Damoa = ()=>{
@@ -30,7 +30,7 @@ const Damoa = ()=>{
         const sortObject = object.sort((a,b)=>{
             return b.percent - a.percent
         })
-        console.log(sortObject);
+        //console.log(sortObject);
         setList(sortObject);
     };
     
@@ -56,13 +56,17 @@ const Damoa = ()=>{
         )
     }
 
+   
+
+    const showHide = !list.length ? "hide" : "" 
+
     return (
         <div>
             <div className="container">
                 <input type="tel" value={text} onChange={onChange} onKeyDown={onKeyDown} ref={nameInput}/>
                 <button onClick={showList}>check</button>
             </div>
-            <div>
+            <div className={showHide}>
                 <table>
                     <thead>
                         <tr>
